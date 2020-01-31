@@ -6,7 +6,6 @@ var app = http.createServer(function(request,response){
     var _url = request.url;
     var queryData = url.parse(_url, true).query;
     var title = queryData.id;
-
     if(_url == '/'){
       title = 'Welcome';
     }
@@ -14,7 +13,6 @@ var app = http.createServer(function(request,response){
       return response.writeHead(404);
     }
     response.writeHead(200);
-
     var template = `
     <!doctype html>
     <html>
@@ -36,10 +34,8 @@ var app = http.createServer(function(request,response){
       </p>
     </body>
     </html>
-
     `;
     response.end(template);
-    //사용자가 접속한 url에 따라 파일정보를 읽어주는 코드이다
 
 });
 app.listen(3000);
